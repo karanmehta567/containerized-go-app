@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: golang-deployment
+  labels:
+    app: golang-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: golang-deployment
+  template:
+    metadata:
+      labels:
+        app: golang-deployment
+    spec:
+      containers:
+      - name: golang
+        image: golang-image-p2 
+        ports:
+        - containerPort: 8000
+
